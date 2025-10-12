@@ -5,23 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>RustStack Loot Box</title>
   <style>
-    /* Osnovni stilovi */
     body {
-      background-color: #0a0a0a; /* gotovo crna pozadina */
-      color: #d4af37; /* zlatna boja */
+      background-color: #0a0a0a;
+      color: #d4af37;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
-      padding: 0;
+      padding: 2rem 4rem;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
-      min-height: 100vh;
-      align-items: center;
-      justify-content: center;
+      align-items: flex-start;
+      justify-content: flex-start;
     }
 
     h1 {
       font-size: 3rem;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.2rem;
       text-shadow: 0 0 10px #d4af37;
     }
 
@@ -32,18 +31,31 @@
       font-weight: 600;
     }
 
+    .container {
+      display: flex;
+      gap: 3rem;
+      align-items: flex-start;
+    }
+
     /* Lootbox stil */
     .case-box {
       perspective: 900px;
-      margin-bottom: 2rem;
       cursor: pointer;
+      user-select: none;
+      transition: transform 0.3s ease;
+      border-radius: 15px;
+      box-shadow: 0 0 15px #d4af37;
+    }
+
+    .case-box:hover {
+      transform: translateY(-10px) rotateZ(3deg);
+      box-shadow: 0 10px 20px #d4af37;
     }
 
     .lootbox {
       width: 250px;
       height: 150px;
       position: relative;
-      user-select: none;
     }
 
     .lid {
@@ -60,7 +72,7 @@
       z-index: 2;
     }
 
-    .lootbox.open .lid {
+    .case-box.open .lid {
       transform: rotateX(-130deg);
       transition: transform 1s ease;
     }
@@ -98,103 +110,4 @@
       font-size: 1.1rem;
       border-radius: 15px;
       cursor: pointer;
-      box-shadow: 0 4px 10px rgba(212, 175, 55, 0.7);
-      transition: background-color 0.3s ease;
-      margin-bottom: 2rem;
-    }
-
-    button:hover {
-      background-color: #b99313;
-    }
-
-    /* Rezultat */
-    #dropResult {
-      font-size: 1.3rem;
-      font-weight: 600;
-      text-align: center;
-      min-height: 40px;
-      letter-spacing: 1px;
-      text-shadow: 0 0 5px #d4af37;
-      margin-bottom: 3rem;
-    }
-
-    /* Footer */
-    footer {
-      text-align: center;
-      color: #7a6e27;
-      font-size: 0.9rem;
-      margin-bottom: 1rem;
-      font-style: italic;
-    }
-  </style>
-</head>
-<body>
-
-  <h1>RustStack</h1>
-  <p class="balance">Balance: <span id="coins">500</span> coins</p>
-
-  <div class="case-box" id="lootbox">
-    <div class="lid"></div>
-    <div class="box">
-      <span class="box-text">Golden Facemask</span>
-    </div>
-  </div>
-
-  <button id="openBtn">Open Case (50 coins)</button>
-  <p id="dropResult"></p>
-
-  <footer>
-    RustStack Demo | Not affiliated with Facepunch or Steam
-  </footer>
-
-  <script>
-    const lootbox = document.getElementById('lootbox');
-    const openBtn = document.getElementById('openBtn');
-    const dropResult = document.getElementById('dropResult');
-    const coinsDisplay = document.getElementById('coins');
-
-    let coins = 500;
-
-    function updateCoins(amount) {
-      coins += amount;
-      coinsDisplay.textContent = coins;
-    }
-
-    openBtn.addEventListener('click', () => {
-      if(coins < 50) {
-        dropResult.textContent = "😞 Not enough coins!";
-        return;
-      }
-      if (lootbox.classList.contains('open')) return;
-
-      updateCoins(-50);
-      dropResult.textContent = '';
-      lootbox.classList.add('open');
-
-      setTimeout(() => {
-        const rewards = [
-          { name: 'Golden Facemask', coins: 500 },
-          { name: 'Silver Mask', coins: 300 },
-          { name: 'Bronze Helmet', coins: 100 },
-          { name: 'Rusty Shovel', coins: 50 },
-          { name: 'Nothing', coins: 0 }
-        ];
-
-        const reward = rewards[Math.floor(Math.random() * rewards.length)];
-
-        if (reward.coins > 0) {
-          dropResult.innerHTML = `🎉 You won <strong>${reward.name}</strong>! (+${reward.coins} coins)`;
-          updateCoins(reward.coins);
-        } else {
-          dropResult.textContent = '😭 Sorry, no reward this time!';
-        }
-
-        setTimeout(() => {
-          lootbox.classList.remove('open');
-        }, 3500);
-      }, 1200);
-    });
-  </script>
-
-</body>
-</html>
+      box-shad
