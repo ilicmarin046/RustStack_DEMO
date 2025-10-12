@@ -1,53 +1,46 @@
-let coins = 500;
-const resultEl = document.getElementById("result");
-const caseBox = document.getElementById("case-box");
-const coinsEl = document.getElementById("coins");
-const openBtn = document.getElementById("openBtn");
+const lootbox = document.getElementById('lootbox');
+const openBtn = document.getElementById('openBtn');
+const dropResult = document.getElementById('dropResult');
+const coinsDisplay = document.getElementById('coins');
 
-function openCase() {
-  if (coins < 50) {
-    resultEl.textContent = " Not enough coins!";
-    resultEl.style.color = "#ff4d4d";
+let coins = 500;
+
+function updateCoins(amount) {
+  coins += amount;
+  coinsDisplay.textContent = coins;
+}
+
+openBtn.addEventListener('click', () => {
+  if(coins < 50) {
+    dropResult.textContent = "😞 Not enough coins!";
     return;
   }
+  if (lootbox.classList.contains('open')) return;
 
-  coins -= 50;
-  coinsEl.textContent = coins;
-  resultEl.textContent = "";
-  caseBox.style.transform = "rotate(15deg)";
-
-  openBtn.disabled = true;
-  openBtn.textContent = "Opening...";
+  updateCoins(-50);
+  dropResult.textContent = '';
+  lootbox.classList.add('open');
 
   setTimeout(() => {
-    caseBox.style.transform = "rotate(-15deg)";
-  }, 200);
+    const rewards = [
+      { name: 'Golden Facemask', coins: 500 },
+      { name: 'Silver Mask', coins: 300 },
+      { name: 'Bronze Helmet', coins: 100 },
+      { name: 'Rusty Shovel', coins: 50 },
+      { name: 'Nothing', coins: 0 }
+    ];
 
-  setTimeout(() => {
-    caseBox.style.transform = "rotate(0deg)";
+    const reward = rewards[Math.floor(Math.random() * rewards.length)];
 
-    const rand = Math.random();
-    let result, color;
-
-    if (rand < 0.05) {
-      result = " Legendary Skin!";
-      color = "#ff9900";
-      coins += 300;
-    } else if (rand < 0.2) {
-      result = " Rare Skin!";
-      color = "#33ccff";
-      coins += 100;
+    if (reward.coins > 0) {
+      dropResult.innerHTML = `🎉 You won <strong>${reward.name}</strong>! (+${reward.coins} coins)`;
+      updateCoins(reward.coins);
     } else {
-      result = "Common Skin ";
-      color = "#bbb";
+      dropResult.textContent = '😭 Sorry, no reward this time!';
     }
 
-    coinsEl.textContent = coins;
-    resultEl.textContent = result;
-    resultEl.style.color = color;
-
-    openBtn.disabled = false;
-    openBtn.textContent = "Open Case (50 coins)";
-  }, 1500);
-
-}
+    setTimeout(() => {
+      lootbox.classList.remove('open');
+    }, 3500);
+  }, 1200);
+});
