@@ -49,4 +49,5 @@ function openCase() {
     openBtn.disabled = false;
     openBtn.textContent = "Open Case (50 coins)";
   }, 1500);
+
 }
