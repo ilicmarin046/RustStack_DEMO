@@ -1,3 +1,4 @@
+/* Body kao flex kontejner centriran po vertikali i horizontalno */
 body {
   background-color: #0a0a0a;
   color: #d4af37;
@@ -5,29 +6,43 @@ body {
   margin: 0;
   padding: 2rem 4rem;
   min-height: 100vh;
+
+  /* Flex za centriranje */
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
+  align-items: center;  /* centriraj horizontalno */
+  justify-content: center; /* centriraj vertikalno */
+  gap: 2rem; /* prostor između elemenata */
 }
 
+/* Naslov */
 h1 {
   font-size: 3rem;
   margin-bottom: 0.2rem;
   text-shadow: 0 0 10px #d4af37;
+  text-align: center;
+  width: 100%;
 }
 
+/* Balans */
 .balance {
   font-size: 1.2rem;
   margin-bottom: 2rem;
   letter-spacing: 1.5px;
   font-weight: 600;
+  text-align: center;
+  width: 100%;
 }
 
+/* Container za lootbox i dugme */
 .container {
   display: flex;
   gap: 3rem;
-  align-items: flex-start;
+  align-items: center; /* poravnaj vertikalno u sredinu */
+  justify-content: center; /* centriraj horizontalno */
+  flex-wrap: wrap; /* da se skida u novi red na manjim ekranima */
+  width: 100%;
+  max-width: 700px;
 }
 
 /* Lootbox stil */
@@ -38,6 +53,7 @@ h1 {
   transition: transform 0.3s ease;
   border-radius: 15px;
   box-shadow: 0 0 15px #d4af37;
+  flex-shrink: 0;
 }
 
 .case-box:hover {
@@ -106,7 +122,8 @@ button {
   box-shadow: 0 4px 10px rgba(212, 175, 55, 0.7);
   transition: background-color 0.3s ease, transform 0.2s ease;
   margin-top: 1rem;
-  align-self: flex-start;
+  flex-shrink: 0;
+  min-width: 200px;
 }
 
 button:hover {
@@ -123,15 +140,15 @@ button:hover {
   margin-top: 1rem;
   min-height: 40px;
   max-width: 300px;
+  text-align: center;
 }
 
 /* Footer */
 footer {
-  margin-top: auto;
+  margin-top: 2rem;
   width: 100%;
   text-align: center;
   color: #7a6e27;
   font-size: 0.9rem;
-  margin-bottom: 1rem;
   font-style: italic;
 }
