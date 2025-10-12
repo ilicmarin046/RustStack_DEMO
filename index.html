@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>RustStack | Case Opening Demo</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
-    <h1> RustStack </h1>
-    <p class="balance">Balance: <span id="coins">500</span> coins</p>
+    <h1 class="title">RustStack</h1>
+    <p class="balance">💰 Balance: <span id="coins">500</span> coins</p>
 
-    <div class="case">
-      <div id="case-box"></div>
+    <div class="case-section">
+      <div id="case-box" class="case-box">🎁 Case Preview</div>
     </div>
 
-    <button id="openBtn" onclick="openCase()">Open Case (50 coins)</button>
+    <button id="openBtn" class="btn" onclick="openCase()">Open Case (50 coins)</button>
     <p id="result" class="result"></p>
 
     <footer>
