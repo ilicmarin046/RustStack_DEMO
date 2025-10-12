@@ -27,5 +27,110 @@
 </body>
 </html>
 
+<div class="case-box">
+  <div class="lootbox" id="lootbox">
+    <div class="lid"></div>
+    <div class="box">
+      <span class="box-text">Golden Facemask</span>
+    </div>
+  </div>
+  <div id="dropResult" class="drop-result"></div>
+</div>
+<script>
+  const lootbox = document.getElementById('lootbox');
+  const dropResult = document.getElementById('dropResult');
+
+  lootbox.addEventListener('click', () => {
+    if (lootbox.classList.contains('open')) return;
+
+    lootbox.classList.add('open');
+    dropResult.textContent = '';
+
+    setTimeout(() => {
+      const rewards = [
+        { name: 'Golden Facemask', coins: 500 },
+        { name: 'Silver Mask', coins: 300 },
+        { name: 'Bronze Helmet', coins: 100 },
+        { name: 'Rusty Shovel', coins: 50 },
+        { name: 'Nothing', coins: 0 }
+      ];
+
+      const reward = rewards[Math.floor(Math.random() * rewards.length)];
+
+      if (reward.coins > 0) {
+        dropResult.innerHTML = `🎉 You won <strong>${reward.name}</strong>! (+${reward.coins} coins)`;
+      } else {
+        dropResult.textContent = '😭 Sorry, no reward this time!';
+      }
+
+      setTimeout(() => {
+        lootbox.classList.remove('open');
+      }, 3500);
+    }, 1200);
+  });
+</script>
+<style>
+  .case-box {
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .lootbox {
+    position: relative;
+    width: 200px;
+    height: 150px;
+    margin: 0 auto;
+    perspective: 800px;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .lid {
+    position: absolute;
+    width: 200px;
+    height: 40px;
+    background: linear-gradient(135deg, #bfa335, #8a6d1b);
+    border-radius: 12px 12px 0 0;
+    top: 0;
+    left: 0;
+    box-shadow: 0 4px 8px rgba(191, 163, 53, 0.7);
+    transform-origin: bottom center;
+    transition: transform 0.6s ease;
+    z-index: 2;
+  }
+
+  .lootbox:hover .lid {
+    transform: rotateX(-60deg);
+  }
+
+  .lootbox.open .lid {
+    transform: rotateX(-120deg);
+    transition: transform 1s ease;
+  }
+
+  .box {
+    position: absolute;
+    width: 200px;
+    height: 110px;
+    background: linear-gradient(135deg, #1a1a1a, #333);
+    border-radius: 0 0 12px 12px;
+    bottom: 0;
+    left: 0;
+    box-shadow: inset 0 0 15px #bfa335;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .box-text {
+    color: #ffd700;
+    font-weight: 900;
+    font-size: 1.8rem;
+    letter-spacing: 3px;
+    text-shadow: 0 0 8px #bfa335;
+    user-select: none;
+  }
+</style>
+
 
 
