@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>RustStack | Case Opening Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1> RustStack </h1>
+    <p class="balance">Balance: <span id="coins">500</span> coins</p>
+
+    <div class="case">
+      <div id="case-box"></div>
+    </div>
+
+    <button id="openBtn" onclick="openCase()">Open Case (50 coins)</button>
+    <p id="result" class="result"></p>
+
+    <footer>
+      <p>RustStack Demo | Not affiliated with Facepunch or Steam</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
