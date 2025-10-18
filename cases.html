@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RustStack | Cases</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>RustStack — Cases</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <header class="site-header">
-    <img src="images/logo.png" alt="RustStack Logo" class="logo">
-    <nav class="nav-buttons">
+  <!-- Header -->
+  <header class="header">
+    <div class="brand">
+      <img class="logo" src="images/logo.png" alt="RustStack logo" />
+      <div style="font-weight:700;color:var(--gold);font-size:18px;">RustStack</div>
+    </div>
+    <nav class="nav">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="cases.html">Cases</a>
@@ -19,36 +23,44 @@
     </nav>
   </header>
 
-  <section class="cases">
-    <h2>Our Cases</h2>
-    <div class="case-list">
-      <div class="case-card">
-        <img src="images/case1.png" alt="Case 1">
-        <h3>Case 1</h3>
-        <a href="#" class="btn open-case">Open Case</a>
-      </div>
-      <div class="case-card">
-        <img src="images/case2.png" alt="Case 2">
-        <h3>Case 2</h3>
-        <a href="#" class="btn open-case">Open Case</a>
+  <main class="container">
+    <div class="cases-header">
+      <div class="cases-title">Cases</div>
+      <div style="color:var(--gold-dim)">Click "Open" to spin the case.</div>
+    </div>
+
+    <div class="case-grid" id="case-grid">
+      <!-- JS will render case cards dynamically -->
+    </div>
+
+    <!-- Modal / Slot machine -->
+    <div class="modal" id="modal">
+      <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="opening">
+        <div style="display:flex;align-items:center;justify-content:space-between;">
+          <h2 id="opening" style="color:var(--gold);">Case Opening</h2>
+          <div style="font-size:13px;color:var(--gold-dim);">RustStack</div>
+        </div>
+
+        <div class="slot-stage">
+          <div class="slot-window" id="slotWindow">
+            <div class="reel" id="reel"></div>
+          </div>
+          <div class="center-marker" aria-hidden="true"></div>
+        </div>
+
+        <div class="controls">
+          <button class="btn" id="spinBtn">Spin</button>
+          <button class="btn" id="stopBtn" disabled>Stop</button>
+        </div>
+
+        <div class="result" id="resultText"></div>
+        <div style="margin-top:8px;">
+          <button class="btn" id="closeBtn">Close</button>
+        </div>
       </div>
     </div>
-  </section>
 
-  <!-- CASE MODAL -->
-  <div id="case-modal" class="case-modal hidden">
-    <div class="modal-content">
-      <h3>Opening Case...</h3>
-      <div class="skin-container">
-        <img src="" alt="Skin" id="random-skin">
-      </div>
-      <button id="close-modal" class="btn">Close</button>
-    </div>
-  </div>
-
-  <footer>
-    <p>&copy; 2025 RustStack</p>
-  </footer>
+  </main>
 
   <script src="script.js"></script>
 </body>
