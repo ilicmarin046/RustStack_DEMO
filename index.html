@@ -1,8 +1,5 @@
-<<!DOCTYPE html>
-<html lang="en">
-<header class="site-header">
-  <img src="images/IMG_2508.png" alt="Logo" class="logo">
-</header>
+<!DOCTYPE html>
+<html lang="hr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,35 +7,46 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <div class="logo">RUSTSTACK</div>
-    <div class="balance">Balance: <span>$2,500.00</span></div>
+
+  <!-- HEADER: logo i navigacija -->
+  <header class="site-header">
+    <img src="images/logo.png" alt="RustStack Logo" class="logo">
+    <nav class="nav-buttons">
+      <a href="#">Početna</a>
+      <a href="#">Albumi</a>
+      <a href="#">Kontakt</a>
+      <a href="#">O nama</a>
+    </nav>
   </header>
 
-  <main>
-    <h1 class="title">Choose your Case</h1>
-    <div class="case-grid">
-      <div class="case" data-name="Starter Case" data-price="5">
-  <img src="https://i.imgur.com/4yK6IuR.png" alt="Starter Case">
-  <p>Starter Case<br><span>$5.00</span></p>
-</div>
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <h1>Dobrodošli na RustStack</h1>
+    <p>Ovdje možete slušati i kupiti glazbu.</p>
+    <a href="#" class="btn">Slušaj odmah</a>
+  </section>
 
-<div class="case" data-name="Gold Rush" data-price="25">
-  <img src="vecteezy_container-isolated-on-transparent_20954069.png" alt="Gold Rush">
-  <p>Gold Rush<br><span>$25.00</span></p>
-</div>
-
-<div class="case" data-name="Elite Case" data-price="100">
-  <img src="https://i.imgur.com/dT4h6Kn.png" alt="Elite Case">
-  <p>Elite Case<br><span>$100.00</span></p>
-</div>
-
-  <div class="result" id="result">
-    <div class="result-content">
-      <h2 id="resultText">You won: ???</h2>
-      <button id="closeResult">Close</button>
+  <!-- ALBUMI -->
+  <section class="albums">
+    <h2>Naši albumi</h2>
+    <div class="album-list">
+      <div class="album-card">
+        <img src="images/album1.png" alt="Album 1">
+        <h3>Album 1</h3>
+        <a href="#" class="btn">Kupite</a>
+      </div>
+      <div class="album-card">
+        <img src="images/album2.png" alt="Album 2">
+        <h3>Album 2</h3>
+        <a href="#" class="btn">Kupite</a>
+      </div>
     </div>
-  </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 RustStack</p>
+  </footer>
 
   <script src="script.js"></script>
 </body>
