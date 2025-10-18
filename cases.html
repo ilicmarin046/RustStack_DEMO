@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RustStack | Cases</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <img src="images/logo.png" alt="RustStack Logo" class="logo">
+    <nav class="nav-buttons">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="cases.html">Cases</a>
+      <a href="leaderboard.html">Leaderboard</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <section class="cases">
+    <h2>Our Cases</h2>
+    <div class="case-list">
+      <div class="case-card">
+        <img src="images/case1.png" alt="Case 1">
+        <h3>Case 1</h3>
+        <a href="#" class="btn open-case">Open Case</a>
+      </div>
+      <div class="case-card">
+        <img src="images/case2.png" alt="Case 2">
+        <h3>Case 2</h3>
+        <a href="#" class="btn open-case">Open Case</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE MODAL -->
+  <div id="case-modal" class="case-modal hidden">
+    <div class="modal-content">
+      <h3>Opening Case...</h3>
+      <div class="skin-container">
+        <img src="" alt="Skin" id="random-skin">
+      </div>
+      <button id="close-modal" class="btn">Close</button>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 RustStack</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
