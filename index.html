@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="hr">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,39 +8,73 @@
 </head>
 <body>
 
-  <!-- HEADER: logo i navigacija -->
+  <!-- HEADER -->
   <header class="site-header">
     <img src="images/logo.png" alt="RustStack Logo" class="logo">
     <nav class="nav-buttons">
-      <a href="#">Početna</a>
-      <a href="#">Albumi</a>
-      <a href="#">Kontakt</a>
-      <a href="#">O nama</a>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#cases">Cases</a>
+      <a href="#leaderboard">Leaderboard</a>
+      <a href="#contact">Contact</a>
     </nav>
   </header>
 
   <!-- HERO SECTION -->
-  <section class="hero">
-    <h1>Dobrodošli na RustStack</h1>
-    <p>Ovdje možete slušati i kupiti glazbu.</p>
-    <a href="#" class="btn">Slušaj odmah</a>
+  <section id="home" class="hero">
+    <h1>Welcome to RustStack</h1>
+    <p>Open cases and win amazing skins!</p>
+    <a href="#cases" class="btn">Open a Case</a>
   </section>
 
-  <!-- ALBUMI -->
-  <section class="albums">
-    <h2>Naši albumi</h2>
-    <div class="album-list">
-      <div class="album-card">
-        <img src="images/album1.png" alt="Album 1">
-        <h3>Album 1</h3>
-        <a href="#" class="btn">Kupite</a>
+  <!-- ABOUT SECTION -->
+  <section id="about" class="about">
+    <h2>About Us</h2>
+    <p>RustStack is a fun platform for opening skin cases. Everything is transparent and exciting!</p>
+  </section>
+
+  <!-- CASES SECTION -->
+  <section id="cases" class="cases">
+    <h2>Our Cases</h2>
+    <div class="case-list">
+      <div class="case-card">
+        <img src="images/case1.png" alt="Case 1">
+        <h3>Case 1</h3>
+        <a href="#" class="btn open-case">Open Case</a>
       </div>
-      <div class="album-card">
-        <img src="images/album2.png" alt="Album 2">
-        <h3>Album 2</h3>
-        <a href="#" class="btn">Kupite</a>
+      <div class="case-card">
+        <img src="images/case2.png" alt="Case 2">
+        <h3>Case 2</h3>
+        <a href="#" class="btn open-case">Open Case</a>
       </div>
     </div>
+  </section>
+
+  <!-- CASE MODAL -->
+  <div id="case-modal" class="case-modal hidden">
+    <div class="modal-content">
+      <h3>Opening Case...</h3>
+      <div class="skin-container">
+        <img src="" alt="Skin" id="random-skin">
+      </div>
+      <button id="close-modal" class="btn">Close</button>
+    </div>
+  </div>
+
+  <!-- LEADERBOARD SECTION -->
+  <section id="leaderboard" class="leaderboard">
+    <h2>Recent Wins</h2>
+    <ul>
+      <li>Player1 won AK-47 | Redline</li>
+      <li>Player2 won M4A1 | Howl</li>
+      <li>Player3 won Karambit | Fade</li>
+    </ul>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="contact">
+    <h2>Contact</h2>
+    <p>Email: support@ruststack.com</p>
   </section>
 
   <!-- FOOTER -->
