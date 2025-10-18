@@ -1,4 +1,15 @@
 /* Body kao flex kontejner centriran po vertikali i horizontalno */
+.site-header {
+  position: fixed;   /* logo ostaje na vrhu kad scrollaš */
+  top: 0;
+  left: 0;
+  padding: 10px;
+  z-index: 1000;     /* da bude iznad ostalog sadržaja */
+}
+
+.logo {
+  height: 50px;      /* prilagodi veličinu loga */
+}
 body {
   background-color: #0a0a0a;
   color: #d4af37;
