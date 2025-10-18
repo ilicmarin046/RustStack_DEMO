@@ -1,25 +1,48 @@
 document.addEventListener("DOMContentLoaded", function() {
-  // Hero gumb
-  const heroButton = document.querySelector(".hero .btn");
-  heroButton.addEventListener("click", function() {
-    alert("Hvala što ste kliknuli na 'Slušaj odmah'!");
-  });
 
-  // Navigacijski gumbi aktivni efekt
+  // Navigation active links
   const navLinks = document.querySelectorAll(".nav-buttons a");
   navLinks.forEach(link => {
     link.addEventListener("click", function(e) {
-      e.preventDefault();
       navLinks.forEach(l => l.classList.remove("active"));
       this.classList.add("active");
     });
   });
 
-  // Album gumbi
-  const albumButtons = document.querySelectorAll(".album-card .btn");
-  albumButtons.forEach(btn => {
-    btn.addEventListener("click", function() {
-      alert("Hvala što ste kliknuli na 'Kupite'!");
+  // Open case modal logic
+  const openButtons = document.querySelectorAll(".open-case");
+  const modal = document.getElementById("case-modal");
+  const closeBtn = document.getElementById("close-modal");
+  const skinImg = document.getElementById("random-skin");
+
+  const skins = [
+    "images/skin1.png",
+    "images/skin2.png",
+    "images/skin3.png"
+  ];
+
+  openButtons.forEach(btn => {
+    btn.addEventListener("click", function(e){
+      e.preventDefault();
+      modal.classList.remove("hidden");
+
+      // Animation: random skins
+      let i = 0;
+      const animInterval = setInterval(() => {
+        const randomSkin = skins[Math.floor(Math.random()*skins.length)];
+        skinImg.src = randomSkin;
+        i++;
+        if(i>10){ // finish animation
+          clearInterval(animInterval);
+          const finalSkin = skins[Math.floor(Math.random()*skins.length)];
+          skinImg.src = finalSkin;
+        }
+      }, 100);
     });
   });
+
+  closeBtn.addEventListener("click", function(){
+    modal.classList.add("hidden");
+  });
+
 });
