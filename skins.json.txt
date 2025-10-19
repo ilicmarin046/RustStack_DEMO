@@ -1,0 +1,5 @@
+[
+  {"name":"AK-47 | Redline","rarity":"Classified","image":"images/placeholder1.png"},
+  {"name":"AWP | Dragon Lore","rarity":"Covert","image":"images/placeholder2.png"},
+  {"name":"M4A4 | Howl","rarity":"Covert","image":"images/placeholder3.png"}
+]

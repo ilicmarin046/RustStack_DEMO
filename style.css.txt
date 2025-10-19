@@ -1,0 +1,26 @@
+:root {
+  --bg-color: #111;
+  --text-color: #fff;
+  --gold: #ffd700;
+  --gold-dim: #aa8800;
+}
+body { margin:0; font-family:sans-serif; background:var(--bg-color); color:var(--text-color);}
+header { display:flex; align-items:center; justify-content:space-between; padding:10px 20px; background:#000; }
+header nav a { color:var(--gold); margin-left:15px; text-decoration:none; font-weight:600;}
+header .logo { display:flex; align-items:center; gap:10px; font-weight:700; color:var(--gold);}
+.auth-btn{padding:6px 12px; background:var(--gold); border:none; color:#000; cursor:pointer; border-radius:4px;}
+.auth-modal{position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); display:flex; justify-content:center; align-items:center; z-index:999; transition:0.3s; }
+.auth-modal.hidden{opacity:0; visibility:hidden;}
+.modal-content{background:#222; padding:20px; border-radius:8px; color:#fff; max-width:400px; width:90%; position:relative;}
+.close-btn{position:absolute; top:10px; right:10px; background:none; border:none; color:#fff; font-size:20px; cursor:pointer;}
+.hero{text-align:center; padding:80px 20px;}
+.hero button{padding:10px 20px; background:var(--gold); border:none; color:#000; font-weight:700; cursor:pointer; border-radius:5px;}
+.case-card{display:inline-block; margin:10px; background:#222; padding:10px; border-radius:6px; text-align:center; width:160px; color:#fff;}
+.case-card img{width:100%; border-radius:6px;}
+.modal{position:fixed; top:0; left:0; width:100%; height:100%; display:none; justify-content:center; align-items:center; background:rgba(0,0,0,0.95); z-index:1000;}
+.modal.open{display:flex;}
+.slot-window{overflow:hidden; width:600px; max-width:90%; border:2px solid var(--gold); border-radius:8px; margin-bottom:10px;}
+.reel{display:flex; transition:transform 2s;}
+.reel-item{min-width:150px; margin-right:12px; background:#222; border:1px solid rgba(255,215,0,0.1); border-radius:4px; text-align:center; color:#fff;}
+.reel-item img{width:100%; border-radius:4px;}
+.result-text{margin-top:10px; font-weight:700; color:var(--gold);}

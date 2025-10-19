@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leaderboard - RustStack</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="logo"><img src="images/logo.png" alt="RustStack Logo"> RustStack</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="cases.html">Open Cases</a>
+    <a href="leaderboard.html">Leaderboard</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <div class="auth-area"></div>
+</header>
+
+<main>
+  <h2>Leaderboard</h2>
+  <p>Coming soon...</p>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
