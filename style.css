@@ -40,11 +40,15 @@ header .logo { display:flex; align-items:center; gap:10px; font-weight:700; colo
   gap: 10px;
 }
 
+.logo {
+  display: flex;
+  align-items: center;
+}
 
-.logo span {
-  font-size: 22px;
-  font-weight: 700;
-  color: var(--gold);
+.logo img {
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
 }
 
 .nav-center {
@@ -88,4 +92,5 @@ header .logo { display:flex; align-items:center; gap:10px; font-weight:700; colo
 .auth-btn:hover {
   background: var(--gold-dim);
 }
+
 
