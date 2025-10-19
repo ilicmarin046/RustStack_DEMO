@@ -261,3 +261,73 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const caseGrid = document.getElementById("case-grid");
+  const caseModal = document.getElementById("case-modal");
+  const caseRoller = document.getElementById("case-roller");
+  const closeCase = document.getElementById("closeCase");
+  const resultText = document.getElementById("resultText");
+
+  fetch("items.json")
+    .then(res => res.json())
+    .then(items => {
+      // Kreiraj case karticu (1 case za test)
+      const div = document.createElement("div");
+      div.classList.add("case-card");
+      div.innerHTML = `
+        <img src="images/case1.png" alt="RustStack Case">
+        <h4>RustStack Case</h4>
+        <button class="open-case-btn">Open</button>
+      `;
+      caseGrid.appendChild(div);
+
+      div.querySelector(".open-case-btn").addEventListener("click", () => {
+        caseRoller.innerHTML = '';
+        caseModal.classList.remove("hidden");
+        resultText.textContent = '';
+
+        // Generiraj “vrtnju”
+        const spinCount = 40;
+        const reelItems = [];
+
+        for (let i = 0; i < spinCount; i++) {
+          const randomItem = getRandomItem(items);
+          reelItems.push(randomItem);
+          const img = document.createElement("img");
+          img.src = randomItem.image;
+          img.classList.add("reel-item");
+          caseRoller.appendChild(img);
+        }
+
+        // Animacija vrtnje
+        caseRoller.style.transition = 'transform 3s cubic-bezier(0.33, 1, 0.68, 1)';
+        caseRoller.style.transform = `translateX(-${(spinCount - 1) * 100}px)`;
+
+        // Odredi konačni item
+        const finalItem = getRandomItem(items);
+
+        setTimeout(() => {
+          resultText.textContent = `You won: ${finalItem.skin} ${finalItem.item} ($${finalItem.price.toFixed(2)})`;
+        }, 3100);
+      });
+    });
+
+  closeCase.addEventListener("click", () => {
+    caseModal.classList.add("hidden");
+    caseRoller.style.transform = 'translateX(0px)';
+  });
+});
+
+// Funkcija za biranje itema po šansi
+function getRandomItem(items) {
+  const random = Math.random() * 100;
+  let cumulative = 0;
+
+  for (const item of items) {
+    cumulative += item.chance;
+    if (random <= cumulative) return item;
+  }
+
+  return items[items.length - 1];
+}
