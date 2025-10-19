@@ -1,0 +1,44 @@
+export default function handler(req, res) {
+  res.status(200).json([
+    {
+      "item": "Hemp Clone",
+      "skin": "Default",
+      "image": "images/items/hemp_clone.png",
+      "rarity": "Common",
+      "chance": 75,
+      "price": 0.01
+    },
+    {
+      "item": "Eoka",
+      "skin": "Rusty",
+      "image": "images/items/eoka.png",
+      "rarity": "Uncommon",
+      "chance": 15,
+      "price": 0.10
+    },
+    {
+      "item": "Face Mask",
+      "skin": "Blackout",
+      "image": "images/items/facemask_blackout.png",
+      "rarity": "Rare",
+      "chance": 7,
+      "price": 0.50
+    },
+    {
+      "item": "AK-47",
+      "skin": "From Hell",
+      "image": "images/items/ak47_fromhell.png",
+      "rarity": "Epic",
+      "chance": 2,
+      "price": 5.00
+    },
+    {
+      "item": "AK-47",
+      "skin": "Glory",
+      "image": "images/items/ak47_glory.png",
+      "rarity": "Legendary",
+      "chance": 1,
+      "price": 15.00
+    }
+  ]);
+}
