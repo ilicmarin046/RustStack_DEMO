@@ -243,3 +243,21 @@ document.addEventListener("DOMContentLoaded", () => {
   })();
 
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const authModal = document.getElementById("auth-modal");
+  const signInBtn = document.getElementById("signInBtn");
+  const authClose = document.getElementById("authClose");
+
+  if (signInBtn) {
+    signInBtn.addEventListener("click", () => {
+      authModal.classList.remove("hidden");
+    });
+  }
+
+  if (authClose) {
+    authClose.addEventListener("click", () => {
+      authModal.classList.add("hidden");
+    });
+  }
+});
