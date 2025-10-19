@@ -1,67 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title></title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RustStack - Home</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
   <header class="main-header">
-  <div class="header-left">
-    <div class="logo">
-      <img src="images/logo.png" alt="RustStack Logo">
+    <div class="header-left">
+      <div class="logo">
+        <img src="images/logo.png" alt="RustStack Logo">
+      </div>
     </div>
-  </div>
 
-  <nav class="nav-center">
-    <a href="index.html">Home</a>
-    <a href="cases.html">Cases</a>
-    <a href="leaderboard.html">Leaderboard</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+    <nav class="nav-center">
+      <a href="index.html">Home</a>
+      <a href="cases.html">Cases</a>
+      <a href="leaderboard.html">Leaderboard</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
 
-  <div class="header-right">
-    <div class="balance">
-      <span>Balance:</span> <strong>$0.00</strong>
+    <div class="header-right">
+      <div class="balance">
+        <span>Balance:</span> <strong>$0.00</strong>
+      </div>
+      <button class="auth-btn" id="signInBtn">Sign In</button>
     </div>
-    <button class="auth-btn" id="signInBtn">Sign In</button>
-  </div>
 
-  <!-- Hamburger za mobile -->
-  <button class="hamburger" id="hamburgerBtn">☰</button>
-</header>
+    <button class="hamburger" id="hamburgerBtn">☰</button>
+  </header>
 
-<main>
-  <section class="hero">
-    <h1>Welcome to RustStack</h1>
-    <p>Open cases, collect skins, climb the leaderboard!</p>
-    <button onclick="window.location.href='cases.html'">Start Opening Cases</button>
-  </section>
-</main>
-
-<!-- Auth modal -->
-<div id="auth-modal" class="auth-modal hidden">
-  <div class="modal-content">
-    <button id="authClose" class="close-btn">×</button>
-    <h2>Sign in</h2>
-    <button id="steamBtn">Sign in with Steam</button>
-    <form id="emailForm">
-      <input type="email" id="emailInput" placeholder="Email" required>
-      <input type="password" id="passwordInput" placeholder="Password" required>
-      <button type="submit">Sign in with Email</button>
-    </form>
-    <div id="auth-message"></div>
-  </div>
-</div>
-
-<script src="script.js"></script>
+  <main>
+    <h1 style="color:#ffd700; text-align:center; margin-top:40px;">Welcome to RustStack</h1>
+    <p style="text-align:center; color:#ccc;">Open Rust cases and win epic skins!</p>
+  </main>
 </body>
 </html>
-
-
-
-
-
