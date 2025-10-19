@@ -12,17 +12,16 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  // 🔹 Učitaj iteme s Vercel API endpointa
+  // 🔹 Fetch iteme iz API-ja
   fetch("/api/items")
     .then(res => {
       console.log("📦 API status:", res.status);
-      if (!res.ok) throw new Error("Failed to load items from API");
+      if (!res.ok) throw new Error("Failed to load items");
       return res.json();
     })
     .then(items => {
       console.log("✅ Items loaded:", items);
 
-      // Napravi jedan case
       const div = document.createElement("div");
       div.classList.add("case-card");
       div.innerHTML = `
@@ -32,14 +31,12 @@ document.addEventListener("DOMContentLoaded", () => {
       `;
       caseGrid.appendChild(div);
 
-      // Kad klikneš "Open"
       div.querySelector(".open-case-btn").addEventListener("click", () => {
         caseRoller.innerHTML = "";
         caseModal.classList.remove("hidden");
         resultText.textContent = "";
 
         const spinCount = 40;
-
         for (let i = 0; i < spinCount; i++) {
           const randomItem = getRandomItem(items);
           const img = document.createElement("img");
@@ -49,7 +46,6 @@ document.addEventListener("DOMContentLoaded", () => {
           caseRoller.appendChild(img);
         }
 
-        // Završni item
         const finalItem = getRandomItem(items);
         setTimeout(() => {
           resultText.textContent = `You won: ${finalItem.skin} ${finalItem.item} ($${finalItem.price.toFixed(
@@ -60,25 +56,21 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .catch(err => {
       console.error("❌ Error fetching items:", err);
-      caseGrid.innerHTML = `<p style="color:red;">Error loading items from API</p>`;
+      caseGrid.innerHTML = `<p style="color:red;">Error loading items</p>`;
     });
 
-  // Zatvori modal
   closeCase.addEventListener("click", () => {
     caseModal.classList.add("hidden");
     caseRoller.style.transform = "translateX(0)";
   });
 });
 
-// 🎲 Funkcija za vjerojatnost itema
 function getRandomItem(items) {
   const random = Math.random() * 100;
   let cumulative = 0;
-
   for (const item of items) {
     cumulative += item.chance;
     if (random <= cumulative) return item;
   }
-
   return items[items.length - 1];
 }
