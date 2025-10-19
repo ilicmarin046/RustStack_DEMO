@@ -24,3 +24,78 @@ header .logo { display:flex; align-items:center; gap:10px; font-weight:700; colo
 .reel-item{min-width:150px; margin-right:12px; background:#222; border:1px solid rgba(255,215,0,0.1); border-radius:4px; text-align:center; color:#fff;}
 .reel-item img{width:100%; border-radius:4px;}
 .result-text{margin-top:10px; font-weight:700; color:var(--gold);}
+
+.main-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #000;
+  padding: 10px 25px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo img {
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+}
+
+.logo span {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+.nav-center {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-center a {
+  color: var(--gold);
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.nav-center a:hover {
+  color: var(--gold-dim);
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.balance {
+  color: var(--gold);
+  font-weight: 500;
+}
+
+.auth-btn {
+  padding: 8px 16px;
+  background: var(--gold);
+  border: none;
+  color: #000;
+  font-weight: 700;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.auth-btn:hover {
+  background: var(--gold-dim);
+}
