@@ -7,16 +7,28 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-  <div class="logo"><img src="images/logo.png" alt="RustStack Logo"></div>
-  <nav>
+<header class="main-header">
+  <div class="header-left">
+    <div class="logo">
+      <img src="images/logo.png" alt="RustStack Logo">
+      <span>RustStack</span>
+    </div>
+  </div>
+
+  <nav class="nav-center">
     <a href="index.html">Home</a>
-    <a href="cases.html">Open Cases</a>
+    <a href="cases.html">Cases</a>
     <a href="leaderboard.html">Leaderboard</a>
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
   </nav>
-  <div class="auth-area"></div>
+
+  <div class="header-right">
+    <div class="balance">
+      <span>Balance:</span> <strong>$0.00</strong>
+    </div>
+    <button class="auth-btn" id="signInBtn">Sign In</button>
+  </div>
 </header>
 
 <main>
@@ -45,4 +57,5 @@
 <script src="script.js"></script>
 </body>
 </html>
+
 
